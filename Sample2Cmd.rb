@@ -1,12 +1,12 @@
 require './CommandStyle'
-class Sample < CommandStyle
+class Sample2 < CommandStyle
     def create_cmd
-        @state.to_s
+        @state.to_s.split("").join("_")
     end
 
     def update_state cmd
         puts "before :#{@state.to_s}"
-        @state = cmd.to_s.split("").select{|e| e=~/[0-9]+/}.join.to_i
+        @state = cmd.to_s.upcase
         puts "after  :#{@state.to_s}"
     end
 

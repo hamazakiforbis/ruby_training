@@ -1,13 +1,13 @@
 class CommandStyle
     @state
     @cmd_pattern
-    def initialize pattern, state
+    def initialize pattern, state = nil
         @state = state if state
         @cmd_pattern = pattern
     end
 
     def create_cmd
-        
+        puts "#{self.class} create command"
     end
     
     def recieve_cmd cmd
@@ -17,7 +17,7 @@ class CommandStyle
     end
     
     def update_state cmd
-        
+        puts "#{self.class} recieved #{cmd.to_s}"
     end
 
 end
