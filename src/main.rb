@@ -1,6 +1,7 @@
 require './CmdSample'
 require './CmdSample2'
 require './input_keyboard'
+require './input_serial_com'
 
 s = CmdSample.new /[[:alnum:]]{5}/, 0
 # s.recieve_cmd "hoge2"
@@ -35,12 +36,17 @@ class CommandHandler
 end
 
 
+input_key = Thread.new { thread_input_keyboard }
+input_com = Thread.new {thread_input_serial_com}
 
-while msg = input_keyboard
-    ch = CommandHandler.new
-    ch.registrate s
-    ch.registrate q
-    
-    ch.broadcast "hoge"
-    puts ch.create_message
+while input_key.join
+    puts "hoa"
 end
+# while msg = input_keyboard
+#     ch = CommandHandler.new
+#     ch.registrate s
+#     ch.registrate q
+    
+#     ch.broadcast "hoge"
+#     puts ch.create_message
+# end

@@ -5,7 +5,7 @@ def init_buf
     @buf.clear
 end
 
-def wait_input
+def thread_input_keyboard
     while (key = STDIN.getch) != "\C-c"
         if key =~ /[\r\n]+/ 
             if @buf.size == 5
