@@ -1,5 +1,5 @@
 require './CommandStyle'
-class Sample2 < CommandStyle
+class CmdSample2 < CommandStyle
     def create_cmd
         @state.to_s.split("").join("_")
     end

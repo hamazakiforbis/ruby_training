@@ -1,5 +1,5 @@
 require './CommandStyle'
-class Sample < CommandStyle
+class CmdSample < CommandStyle
     def create_cmd
         @state.to_s
     end
