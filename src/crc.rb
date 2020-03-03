@@ -2,10 +2,10 @@ txt = "12345"
 txt = ARGV[0] if ARGV[0] =~ /^[0-9A-Fa-f]+$/
 # puts "#{txt}/#{txt.to_i(16)}"
 
-POLY = 0b1011
+POLY = 0x1021
 pol_size = POLY.to_s(2).size - 1
 val_raw = txt.to_i(16) << pol_size
-val_raw = 0b11010011101100 << pol_size
+# val_raw = 0b11010011101100 << pol_size
 
 crc = val_raw
 crc_len = crc.to_s(2).size
@@ -19,4 +19,4 @@ while crc > POLY
     end
     crc_len = crc_len - 1
 end
-puts sprintf("%04b",crc)
+puts sprintf("%04x/%04b",~crc,~crc)
