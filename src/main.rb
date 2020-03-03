@@ -37,11 +37,9 @@ end
 
 
 input_key = Thread.new { thread_input_keyboard }
-input_com = Thread.new {thread_input_serial_com}
+input_com = Thread.new { thread_input_serial_com }
+input_key.join
 
-while input_key.join
-    puts "hoa"
-end
 # while msg = input_keyboard
 #     ch = CommandHandler.new
 #     ch.registrate s
