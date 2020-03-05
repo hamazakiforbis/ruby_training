@@ -1,3 +1,5 @@
+require 'io/console'
+
 class InputReciever
     @buf
     def initialize
@@ -16,3 +18,39 @@ class InputReciever
         end
     end
 end
+
+
+# def threading
+#     t = Thread.new do 
+#         while true
+#             yield
+#             sleep 1
+#         end
+#     end 
+# end
+
+# th = threading do
+#     puts "hoge"
+# end
+# sleep 10
+# puts "end?"
+# th.join
+
+def parent_method
+    while true
+        p 1
+        yield
+        p 1
+        puts
+    end
+end
+
+def child_method
+    parent_method do
+        c = STDIN.getch
+        return if c == "\C-c"
+        print c
+    end
+end
+
+child_method
