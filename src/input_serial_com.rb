@@ -9,7 +9,7 @@ require 'serialport'
 @com = SerialPort.new('/dev/ttyS0', 19200, 8, 1, 0) # device, rate, data, stop, parity
 def thread_input_serial_com
     @com.open
-    while true
+    loop do
     end
     @com.close
 end
