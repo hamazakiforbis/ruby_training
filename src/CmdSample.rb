@@ -1,5 +1,10 @@
 require './CommandStyle'
 class CmdSample < CommandStyle
+    @state = 
+    {
+        :spd_bp => 0,
+        :spd_sp => 0
+    }
     def create_cmd
         @state.to_s
     end
